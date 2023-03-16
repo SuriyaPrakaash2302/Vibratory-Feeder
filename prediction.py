@@ -10,7 +10,7 @@ from sklearn.metrics import mean_absolute_error
 import joblib
 
 def predict(data):
-	dataset=pd.read_csv('data/regress.csv')
+	dataset=pd.read_csv('regress.csv')
 	clf = joblib.load("rf_model.sav")
 	X = dataset.iloc[:, :-1].values
 	y = dataset.iloc[:, -1].values
