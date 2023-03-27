@@ -27,3 +27,30 @@ if st.button("Predict"):
 			velocity= predict(np.array([[voltage, frequency, height, h_hd,weight]]))
 			x= round(velocity[0][0],2)
 			st.subheader("The velocity of the part is "+"  " +str(x)+" cm/sec")
+
+hide_streamlit_style = """
+            <style>
+            #footer {
+	
+	visibility: hidden;
+	
+	}
+	footer {
+	
+	visibility: hidden;
+	
+	}
+
+	#MainMenu {visibility: hidden;}
+footer:after {
+	content:'Created by students (Suriya Prakaash J L, Subhashini A, Karen N) of PSG Tech as part of final year project in 2023'; 
+	visibility: visible;
+	display: block;
+	position: relative;
+	#background-color: red;
+	padding: 5px;
+	top: 2px;
+}
+            </style>
+            """
+st.markdown(hide_streamlit_style, unsafe_allow_html=True) 
