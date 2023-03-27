@@ -24,3 +24,11 @@ def predict(data):
 	a=clf.predict(s).reshape(-1,1)
 	y_pred = sc_y.inverse_transform(a)
 	return 10/y_pred
+
+def classi(data):
+	clf = joblib.load("rf_model_class.sav")
+	a = clf.predict(data).reshape(-1,1)
+	if (a==1):
+		return "Yes"
+	else:
+		return "No"
