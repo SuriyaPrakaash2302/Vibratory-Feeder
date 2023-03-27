@@ -26,4 +26,4 @@ if st.button("Predict"):
 			
 			velocity= predict(np.array([[voltage, frequency, height, h_hd,weight]]))
 			x= round(velocity[0][0],2)
-			st.subheader("The velocity of the part is "+"  " +str(x))
+			st.subheader("The velocity of the part is "+"  " +str(x)+" cm/sec")
