@@ -4,6 +4,9 @@ import numpy as np
 from prediction import predict, classi
 
 st.title('Velocity Predictor')
+original_title = '<b style="font-family:Courier; color:Blue; font-size: 20px;"> An advanced ML tool can predict the velocity of a part in a vibratory feeder using part parameters like height, weight, height-diameter ratio, and feeder parameters like voltage and frequency. The tool would utilize supervised learning techniques and a large historical dataset to accurately model the complex relationships between input variables and output velocities.</p>'
+st.markdown(original_title, unsafe_allow_html=True)
+
 st.caption('An advanced ML tool can predict the velocity of a part in a vibratory feeder using part parameters like height, weight, height-diameter ratio, and feeder parameters like voltage and frequency. The tool would utilize supervised learning techniques and a large historical dataset to accurately model the complex relationships between input variables and output velocities.')
 st.header("Part parameters")
 weight = st.slider('Mass (in grams)', min_value=40, max_value=160, step=10, label_visibility="visible")
