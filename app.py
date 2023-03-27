@@ -10,7 +10,7 @@ st.markdown(original_title, unsafe_allow_html=True)
 st.header("Part parameters")
 weight = st.slider(' Mass (in grams)', min_value=40, max_value=160, step=10, label_visibility="visible")
 height = st.slider('Height (in centimeters)', min_value=30, max_value=200, step=10, label_visibility="visible")
-h_hd = st.slider('H_HD', min_value=0.0, max_value=2.0, step=0.1, label_visibility="visible")
+h_hd = st.slider('Height-Diameter ratio', min_value=0.0, max_value=2.0, step=0.1, label_visibility="visible")
 
 st.header("Feeder parameters")
 voltage = st.slider('Voltage (Volts)', min_value=0, max_value=259, step=1, label_visibility="visible")
