@@ -14,10 +14,10 @@ h_hd = st.slider('**Height-Diameter ratio**', min_value=0.0, max_value=2.0, step
 
 st.header("Feeder parameters")
 voltage = st.slider('**Voltage (Volts)**', min_value=0, max_value=259, step=1, label_visibility="visible")
-frequency = st.slider('**Frequency (Hertz)**', min_value=0, max_value=500, step=1, label_visibility="visible")
+frequency = st.slider('**Frequency (Hertz)**', min_value=0, max_value=200, step=1, label_visibility="visible")
 
 if st.button("Predict"):
-	if (voltage < 100 or frequency<60 or frequency>140 or h_hd<0.2 ):
+	if (voltage < 100 or frequency<60 or frequency>160 or h_hd<0.01 ):
 		st.subheader(" There is no movement for the given parameters")
 	else:
 		result = classi(np.array([[voltage, frequency, height, h_hd,weight]]))
