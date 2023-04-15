@@ -24,9 +24,8 @@ def predict(data):
 	s=sc_X.transform(data)
 	a=FFN.predict(s).reshape(-1,1)
 	b=GB.predict(s).reshape(-1,1)
-	y_pred_a = sc_y.inverse_transform(a)
-	y_pred_b = sc_y.inverse_transform(b)
-	y_pred = (y_pred_a + y_pred_b)/2
+
+	y_pred = (a + b)/2
 	return 10/y_pred
 
 def classi(data):
