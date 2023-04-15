@@ -11,7 +11,8 @@ import joblib
 
 def predict(data):
 	dataset=pd.read_csv('regress.csv')
-	clf = joblib.load("rf_model.sav")
+	FFN = joblib.load("FFN.sav")
+	GB = joblib.load("GBoost.sav")
 	X = dataset.iloc[:, :-1].values
 	y = dataset.iloc[:, -1].values
 	y = y.reshape(len(y),1)
@@ -21,8 +22,11 @@ def predict(data):
 	X_train = sc_X.fit_transform(Xtrain)
 	y_train = sc_y.fit_transform(ytrain)
 	s=sc_X.transform(data)
-	a=clf.predict(s).reshape(-1,1)
-	y_pred = sc_y.inverse_transform(a)
+	a=FFN.predict(s).reshape(-1,1)
+	b=GB.predict(s).reshape(-1,1)
+	y_pred_a = sc_y.inverse_transform(a)
+	y_pred_b = sc_y.inverse_transform(b)
+	y_pred = (y_pred_a + y_pred_b)/2
 	return 10/y_pred
 
 def classi(data):
