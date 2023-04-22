@@ -1,0 +1,21 @@
+import pandas as pd
+import numpy as np
+from sklearn.metrics import accuracy_score, confusion_matrix
+from sklearn.metrics import classification_report
+from sklearn.svm import SVC
+import joblib
+
+dataset = pd.read_csv('class.csv')
+data = pd.read_csv('class.csv')
+
+#separating independent and dependent variables
+x = data.drop(['Movement'], axis=1)
+y = data['Movement']
+
+from sklearn.model_selection import train_test_split
+train_x, valid_x, train_y, valid_y = train_test_split(x, y, random_state=101, stratify=y)
+
+classifier = SVC(kernel='rbf', random_state=0)
+classifier.fit(train_x, train_y)
+
+joblib.dump(classifier, "svm_model_class.sav")
