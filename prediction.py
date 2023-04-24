@@ -35,3 +35,18 @@ def classi(data):
 		return "Yes"
 	else:
 		return "No"
+
+def voltager(data):
+	df=pd.read_csv('regress.csv')
+	XB = joblib.load("XB.sav")
+	
+	X = df.iloc[:, 2:-1].values
+	y = df.iloc[:, 0:2].values
+	Xtrain, Xtest, ytrain, ytest = train_test_split(X, y, test_size = 0.25, random_state = 0)
+	sc_X = StandardScaler()
+	sc_y = StandardScaler()
+	X_train = sc_X.fit_transform(Xtrain)
+	y_train = sc_y.fit_transform(ytrain)
+	s=sc_X.transform(data)
+	a=XB.predict(s).reshape(-1,2)
+	return a
